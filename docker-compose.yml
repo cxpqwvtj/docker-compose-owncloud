@@ -1,0 +1,28 @@
+version: "2"
+services:
+  owncloud:
+    image: owncloud:9.0.1-apache
+    links:
+      - owncloud-mysql:mysql
+    ports:
+      - "80:80"
+    volumes_from:
+      - owncloud-data
+
+  owncloud-mysql:
+    image: mysql:5.7.12
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpass
+      - MYSQL_DATABASE=owncloud_prod
+      - MYSQL_USER=owncloud
+      - MYSQL_PASSWORD=owncloud
+    expose:
+      - 3306
+
+  owncloud-data:
+    image: busybox:1.24.2
+    volumes:
+      - /var/www/html
+      - /var/www/html/apps
+      - /var/www/html/config
+      - /var/www/html/data
