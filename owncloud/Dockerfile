@@ -1,4 +1,5 @@
 FROM php:5.6-apache
+MAINTAINER cxpqwvtj
 
 RUN apt-get update && apt-get install -y \
 	bzip2 \
