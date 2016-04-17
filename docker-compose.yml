@@ -1,7 +1,8 @@
 version: "2"
 services:
   owncloud:
-    image: owncloud:9.0.1-apache
+    build: 
+      context: ./owncloud
     links:
       - owncloud-mysql:mysql
     ports:
