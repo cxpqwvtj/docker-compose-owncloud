@@ -1,4 +1,4 @@
-FROM owncloud:9.0.1-apache
+FROM owncloud:9.1.5-apache
 MAINTAINER cxpqwvtj
 
 RUN apt-get update && apt-get install -y \
